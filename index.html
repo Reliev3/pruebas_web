@@ -112,15 +112,9 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="hero" class="relative py-24 md:py-40 overflow-hidden">
-            <!-- Background Video -->
-            <div class="absolute inset-0 z-0">
-                <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="image1.jpg">
-                    <source src="video1.mp4" type="video/mp4">
-                    Tu navegador no soporta videos.
-                </video>
-                <div class="absolute inset-0 bg-black/60"></div>
-            </div>
+        <section id="hero" class="relative py-24 md:py-40 bg-cover bg-center" style="background-image: url('image1.jpg');">
+            <!-- Background Overlay -->
+            <div class="absolute inset-0 bg-black/60"></div>
             
             <div class="container mx-auto px-6 text-center relative z-10">
                 <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight tracking-tighter">
@@ -385,3 +379,4 @@
     </script>
 </body>
 </html>
+
