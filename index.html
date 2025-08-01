@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relieve | Análisis de Terrenos y Datos Geoespaciales en Puerto Rico</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Geist Font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-sans/variable.css" />
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <!-- Reemplaza con tu ID de Medición de Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-YOUR_MEASUREMENT_ID');
+      // Reemplaza con tu ID de Conversión de Google Ads
+      gtag('config', 'AW-YOUR_CONVERSION_ID'); 
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Geist Sans', sans-serif;
+            background-color: #111827; /* Dark Gray/Blue */
+            color: #F3F4F6; /* Light Gray Text */
+        }
+        .section-title {
+            font-size: 2.5rem; /* 40px */
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+        }
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 3rem; /* 48px */
+            }
+        }
+        .section-subtitle {
+            font-size: 1.125rem; /* 18px */
+            color: #9CA3AF; /* Medium Gray for subtitles */
+            max-width: 65ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-button {
+            background-color: #3b82f6; /* Vibrant Blue */
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39);
+            transition: all 0.3s ease-in-out;
+        }
+        .cta-button:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px 0 rgba(59, 130, 246, 0.45);
+        }
+        .glass-card {
+            background: rgba(31, 41, 55, 0.6); /* Semi-transparent dark gray */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            overflow: hidden; /* Ensures child images conform to border radius */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="bg-gray-900/70 backdrop-blur-md sticky top-0 z-50 border-b border-gray-700">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white flex items-center gap-2">
+                <i data-lucide="layers-3" class="text-blue-500"></i>
+                Relieve
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#servicios" class="text-gray-300 hover:text-white transition-colors">Servicios</a>
+                <a href="#galeria" class="text-gray-300 hover:text-white transition-colors">Galería</a>
+                <a href="#para-quien" class="text-gray-300 hover:text-white transition-colors">Para Quién</a>
+                <a href="#testimonios" class="text-gray-300 hover:text-white transition-colors">Testimonios</a>
+                <a href="#contacto" class="text-gray-300 hover:text-white transition-colors">Contacto</a>
+            </div>
+            <a href="#contacto" 
+               class="cta-button hidden md:block"
+               onclick="gtag('event', 'conversion', {'send_to': 'AW-YOUR_CONVERSION_ID/YOUR_LABEL_HEADER'}); gtag('event', 'click_contact_header');">
+                Solicitar Consulta
+            </a>
+             <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                <i data-lucide="menu"></i>
+            </button>
+        </nav>
+         <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="#servicios" class="block text-gray-300 hover:text-white transition-colors py-2">Servicios</a>
+            <a href="#galeria" class="block text-gray-300 hover:text-white transition-colors py-2">Galería</a>
+            <a href="#para-quien" class="block text-gray-300 hover:text-white transition-colors py-2">Para Quién</a>
+            <a href="#testimonios" class="block text-gray-300 hover:text-white transition-colors py-2">Testimonios</a>
+            <a href="#contacto" class="block cta-button text-center mt-2" onclick="gtag('event', 'conversion', {'send_to': 'AW-YOUR_CONVERSION_ID/YOUR_LABEL_HEADER'}); gtag('event', 'click_contact_header');">Solicitar Consulta</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative py-24 md:py-40 overflow-hidden">
+            <!-- Background Video -->
+            <div class="absolute inset-0 z-0">
+                <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="image1.jpg">
+                    <source src="video1.mp4" type="video/mp4">
+                    Tu navegador no soporta videos.
+                </video>
+                <div class="absolute inset-0 bg-gray-900/70"></div>
+            </div>
+            
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight tracking-tighter">
+                    No Compres a Ciegas en Puerto Rico.
+                    <br class="hidden md:block">
+                    <span class="text-blue-400">Domina Cada Detalle de Tu Terreno.</span>
+                </h1>
+                <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-gray-300">
+                    Te entregamos análisis geoespaciales precisos y visualizaciones interactivas para que tomes decisiones de inversión, desarrollo o conservación con total confianza y seguridad.
+                </p>
+                <div class="mt-10">
+                    <a href="#contacto" 
+                       class="cta-button text-lg py-4 px-8 shadow-xl transform hover:scale-105 transition-all duration-300"
+                       onclick="gtag('event', 'conversion', {'send_to': 'AW-YOUR_CONVERSION_ID/YOUR_LABEL_HERO'}); gtag('event', 'click_contact_hero');">
+                        Obtén Tu Análisis Ahora
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- "Nuestros Servicios" Section -->
+        <section id="servicios" class="py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-white">De Datos Crudos a Claridad Absoluta</h2>
+                    <p class="section-subtitle mt-4">
+                        Transformamos datos complejos en herramientas visuales e informes comprensibles. Esto es lo que hacemos por ti:
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1: Topografía y Elevaciones -->
+                    <div class="glass-card">
+                        <img src="image7.jpg" alt="Visualización 3D de líneas de contorno" class="rounded-lg mb-4 h-40 w-full object-cover -m-8 w-[calc(100%+4rem)] max-w-none">
+                        <div class="pt-40">
+                            <h3 class="text-xl font-semibold mb-2 text-blue-400">Topografía, Elevaciones y Forma</h3>
+                            <p class="text-gray-300">Visualiza el relieve, las pendientes y la forma exacta del terreno. Fundamental para entender su potencial y desafíos constructivos.</p>
+                        </div>
+                    </div>
+                    <!-- Service 2: Acumulación de Agua -->
+                    <div class="glass-card">
+                        <img src="image3.jpg" alt="Análisis de acumulación de agua en terreno 3D" class="rounded-lg mb-4 h-40 w-full object-cover -m-8 w-[calc(100%+4rem)] max-w-none">
+                        <div class="pt-40">
+                            <h3 class="text-xl font-semibold mb-2 text-blue-400">Análisis de Acumulación de Agua</h3>
+                            <p class="text-gray-300">Identificamos cómo y dónde se acumula el agua de lluvia, detectando zonas inundables y oportunidades para manejo de escorrentías.</p>
+                        </div>
+                    </div>
+                    <!-- Service 3: Mapa de Contornos -->
+                    <div class="glass-card">
+                        <img src="image2.jpg" alt="Ilustración de líneas de contorno en un mapa" class="rounded-lg mb-4 h-40 w-full object-cover -m-8 w-[calc(100%+4rem)] max-w-none">
+                        <div class="pt-40">
+                            <h3 class="text-xl font-semibold mb-2 text-blue-400">Mapa de Contornos y Elevaciones</h3>
+                            <p class="text-gray-300">Recibe mapas de contorno precisos que detallan las variaciones de elevación, cruciales para planificación e ingeniería.</p>
+                        </div>
+                    </div>
+                    <!-- Service 4: Análisis de Datos -->
+                    <div class="glass-card">
+                        <img src="image8.jpg" alt="Modelo de elevación digital de un terreno" class="rounded-lg mb-4 h-40 w-full object-cover -m-8 w-[calc(100%+4rem)] max-w-none">
+                        <div class="pt-40">
+                            <h3 class="text-xl font-semibold mb-2 text-blue-400">Análisis Integral del Terreno</h3>
+                            <p class="text-gray-300">Analizamos clasificación, calificación, tipo de suelo y colindancias para darte un panorama regulatorio y físico completo.</p>
+                        </div>
+                    </div>
+                    <!-- Service 5: Página Web Interactiva -->
+                    <div class="glass-card">
+                        <img src="image9.jpg" alt="Visualización 3D interactiva de un terreno" class="rounded-lg mb-4 h-40 w-full object-cover -m-8 w-[calc(100%+4rem)] max-w-none">
+                        <div class="pt-40">
+                            <h3 class="text-xl font-semibold mb-2 text-blue-400">Página Web Interactiva del Terreno</h3>
+                            <p class="text-gray-300">Te entregamos una página web privada y exclusiva de tu terreno, con mapas y datos 3D interactivos para explorar y compartir.</p>
+                        </div>
+                    </div>
+                    <!-- Service 6: Exploración y Fotografía -->
+                    <div class="glass-card">
+                        <img src="image4.jpg" alt="Vista aérea de montañas en Puerto Rico" class="rounded-lg mb-4 h-40 w-full object-cover -m-8 w-[calc(100%+4rem)] max-w-none">
+                        <div class="pt-40">
+                            <h3 class="text-xl font-semibold mb-2 text-blue-400">Exploración y Fotografía Aérea</h3>
+                            <p class="text-gray-300">Si lo necesitas, realizamos visitas de campo y captura de imágenes con drones para una validación y documentación visual inigualable.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="galeria" class="py-20 md:py-28 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-white">Visualiza la Data: Nuestros Análisis</h2>
+                    <p class="section-subtitle mt-4">Explora ejemplos de los entregables visuales que recibirás. Cada imagen representa una capa de información crucial sobre un terreno.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <img src="image1.jpg" alt="Fotografía aérea de la copa de los árboles de un bosque" class="rounded-lg h-64 w-full object-cover hover:scale-105 transition-transform duration-300">
+                    <img src="image2.jpg" alt="Ilustración de líneas de contorno topográficas" class="rounded-lg h-64 w-full object-cover hover:scale-105 transition-transform duration-300">
+                    <img src="image3.jpg" alt="Visualización 3D de acumulación de agua en un terreno" class="rounded-lg h-64 w-full object-cover hover:scale-105 transition-transform duration-300">
+                    <img src="image4.jpg" alt="Vista aérea de montañas en Puerto Rico" class="rounded-lg h-64 w-full object-cover hover:scale-105 transition-transform duration-300">
+                    <img src="image5.jpg" alt="Segunda vista aérea de montañas en Puerto Rico" class="rounded-lg h-64 w-full object-cover hover:scale-105 transition-transform duration-300">
+                    <img src="image6.jpg" alt="Segunda visualización 3D de acumulación de agua" class="rounded-lg h-64 w-full object-cover hover:scale-105 transition-transform duration-300">
+                    <img src="image7.jpg" alt="Visualización 3D de líneas de contorno" class="rounded-lg h-64 w-full object-cover hover:scale-105 transition-transform duration-300">
+                    <img src="image8.jpg" alt="Modelo de elevación digital de un terreno" class="rounded-lg h-64 w-full object-cover hover:scale-105 transition-transform duration-300">
+                    <img src="image9.jpg" alt="Líneas de contorno 3D con fondo negro" class="rounded-lg h-64 w-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+        </section>
+        
+        <!-- "Para Quién" Section -->
+        <section id="para-quien" class="py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-white">Una Herramienta Esencial en Puerto Rico</h2>
+                    <p class="section-subtitle mt-4">Nuestros análisis son decisivos para una variedad de profesionales y particulares.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1: Compradores -->
+                    <div class="bg-gray-800 p-8 rounded-lg border border-gray-700">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-500/20 text-blue-400 mb-4">
+                            <i data-lucide="home"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">Compradores de Terrenos</h3>
+                        <p class="text-gray-300">Invierte con certeza. Conoce los riesgos ocultos como zonas inundables o pendientes inviables antes de cerrar el trato. Evita sorpresas costosas.</p>
+                    </div>
+                    <!-- Card 2: Vendedores -->
+                    <div class="bg-gray-800 p-8 rounded-lg border border-gray-700">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-500/20 text-blue-400 mb-4">
+                            <i data-lucide="tag"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">Vendedores y Corredores</h3>
+                        <p class="text-gray-300">Justifica tu precio y acelera la venta. Presenta tu propiedad con un paquete de datos profesionales que demuestra todo su potencial y transparencia.</p>
+                    </div>
+                    <!-- Card 3: Gerentes de Proyecto -->
+                    <div class="bg-gray-800 p-8 rounded-lg border border-gray-700">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-500/20 text-blue-400 mb-4">
+                            <i data-lucide="leaf"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">Ambientalistas y Planificadores</h3>
+                        <p class="text-gray-300">Obtén data precisa para tus estudios de impacto ambiental, proyectos de conservación o planes de desarrollo. Nuestros mapas son tu mejor aliado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonios" class="py-20 md:py-28 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-white">Decisiones Informadas, Clientes Satisfechos</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div class="glass-card">
+                        <p class="text-gray-300 text-lg italic">"El análisis de Relieve fue clave. Íbamos a comprar un terreno que parecía perfecto, pero su informe nos mostró que estaba en una zona con riesgo de deslizamiento. La página web interactiva fue increíble para entenderlo. Nos ahorraron un problema enorme."</p>
+                        <p class="mt-4 font-semibold text-right text-blue-400">- Familia Pérez, Compradores</p>
+                    </div>
+                    <div class="glass-card">
+                        <p class="text-gray-300 text-lg italic">"Como ambientalista, uso los mapas de Relieve para mis investigaciones de campo. La precisión de los datos de contorno y cuerpos de agua es fundamental para mi trabajo de conservación en la isla."</p>
+                        <p class="mt-4 font-semibold text-right text-blue-400">- Dr. Alejandro Ríos, Biólogo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contacto" class="py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="section-title text-white">¿Listo para Conocer tu Terreno?</h2>
+                    <p class="section-subtitle mt-4">Completa el formulario con la información del terreno de tu interés en Puerto Rico y te contactaremos para una consulta inicial sin costo.</p>
+                </div>
+                <div class="max-w-2xl mx-auto glass-card">
+                    <form action="#" method="POST" onsubmit="handleFormSubmit(event)">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="nombre" class="block text-sm font-medium text-gray-300">Nombre Completo</label>
+                                <input type="text" name="nombre" id="nombre" required class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-white">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300">Correo Electrónico</label>
+                                <input type="email" name="email" id="email" required class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-white">
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <label for="pueblo" class="block text-sm font-medium text-gray-300">Pueblo / Municipio</label>
+                            <input type="text" name="pueblo" id="pueblo" required class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-white">
+                        </div>
+                        <div class="mt-6">
+                            <label for="catastro" class="block text-sm font-medium text-gray-300">Número de Catastro o Coordenadas</label>
+                            <input type="text" name="catastro" id="catastro" placeholder="Ej: 123-456-789-01-001 o 18.2208, -66.5901" required class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-white">
+                        </div>
+                        <div class="mt-8 text-center">
+                            <button type="submit" class="w-full cta-button text-lg py-3">
+                                Solicitar Mi Consulta Gratuita
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-700">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <p>© 2025 Relieve. Todos los derechos reservados.</p>
+            <p class="text-sm mt-2">Análisis geoespacial para todo Puerto Rico.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Logic
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Google Ads & Analytics Event Tracking for Form Submission
+        function handleFormSubmit(event) {
+            // event.preventDefault(); // Descomenta si manejas el envío del form con AJAX/Fetch
+
+            console.log("Form submitted. Firing tracking events.");
+
+            // Google Ads Conversion Event
+            // Reemplaza con tu ID de Conversión y Etiqueta de Conversión específicos para el formulario
+            gtag('event', 'conversion', {
+                'send_to': 'AW-YOUR_CONVERSION_ID/YOUR_FORM_SUBMIT_LABEL',
+                'transaction_id': '' // Opcional: puedes generar un ID único aquí
+            });
+
+            // Google Analytics 4 Event
+            gtag('event', 'generate_lead', {
+              'event_category': 'contact',
+              'event_label': 'form_submission'
+            });
+
+            // Si no usas AJAX, el form se enviará normalmente después de esto.
+            // Si usas AJAX, aquí iría tu código para enviar los datos del form al servidor.
+        }
+    </script>
+</body>
+</html>
